@@ -1,0 +1,29 @@
+version: '3.5'  
+
+services: 
+    redis:
+      image: redis
+    frontend-excercise: 
+      image: node-test
+      ports: 
+        - 5000:5000
+    backend-excercise:
+      image: back-test
+      ports:
+        - 8000:8000
+      environment: 
+        - REDIS=redis
+        - DB_USERNAME=postgres
+        - DB_PASSWORD=password
+        - DB_NAME=postgres
+        - DB_HOST=db
+    db:
+      image: postgres
+      restart: unless-stopped
+      environment: 
+        - POSTGRES_PASSWORD=password
+        - DB_USERNAME=example
+        - DB_PASSWORD=example
+        - DB_NAME=example
+        - DB_HOST=db
+ 

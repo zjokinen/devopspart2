@@ -1,0 +1,16 @@
+version: '3.5'  
+
+services: 
+    redis:
+      image: redis
+    frontend-excercise: 
+      image: node-test
+      ports: 
+        - 5000:5000
+    backend-excercise:
+      image: back-test
+      ports:
+        - 8000:8000
+      environment: 
+        - REDIS=redis
+ 
